@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+	devtool: 'source-map',
     entry: [
 		'./src/index.js'
 	],
@@ -32,19 +33,24 @@ module.exports = {
         extensions: ['', '.js']
     },
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loaders: ['babel'],
-            exclude: /node_modules/
-        }, {
-            test: /comps\/(.+?)\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
-        }, {
-            test: /statics\/(.+?)\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css')
-        }, {
-            test: /\.(png|jpg|jpeg|gif)$/,
-            loader: 'url-loader?limit=8192&name=image/[hash:8].[name].[ext]'
-        }]
+        loaders: [
+			{
+	            test: /\.js$/,
+	            loaders: ['react-hot', 'babel'],
+	            exclude: /node_modules/
+	        }, 
+			{
+	            test: /\.css$/,
+	            loader: ExtractTextPlugin.extract('style', 'css')
+	        }, 
+			{ 	
+				test: /\.(ttf|eot|woff|woff2|otf|svg)/, 
+				loader: 'file-loader?name=./font/[name].[ext]' 
+			},
+			{
+	            test: /\.(png|jpg|jpeg|gif)$/,
+	            loader: 'url-loader?limit=8192&name=image/[hash:8].[name].[ext]'
+	        }
+		]
     }
 };

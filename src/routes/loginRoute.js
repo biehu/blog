@@ -1,16 +1,16 @@
 import React from 'react';
 import {fetchNewComponent} from '../states/routerState';
 
-const Route = {
-    path: 'login',
+var route = {
+    path: 'Login',
     getComponent(location, cb) {
         var dispatch = this.store.dispatch;
         dispatch(fetchNewComponent(true));
-		
+	
         function fetchComponent() {
             return new Promise(resolve => {
                 require.ensure([], require => {
-                    cb(null, require('../components/auth/login'));
+                    cb(null, require('../components/Login'));
                     resolve();
                 });
             });
@@ -24,4 +24,4 @@ const Route = {
     }
 };
 
-export default Route;
+export default route;

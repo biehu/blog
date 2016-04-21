@@ -1,10 +1,10 @@
 {
-  "name": "demo1",
+  "name": "blog",
   "version": "0.0.1",
-  "description": "example of redux/react/router/webpack",
+  "description": "blog of redux/react/router/webpack",
   "scripts": {
-    "start": "node ./devServer.js",
-    "build": "NODE_ENV=production webpack -p --progress --color --config webpack/webpack.config.prod.js"
+    "start": "node devServer.js",
+    "build": "NODE_ENV=production webpack -p --progress --color --config webpack.config.prod.js"
   },
   "keywords": [
     "react",

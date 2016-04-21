@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router';
 import {checkLogin} from '../states/authState';
-import NoFound from '../components/noFound/noFound';
-import App from '../components/app';
+import App from '../components/App';
+import noFound from '../components/NoFound';
 import articleList from './articleListRoute';
 import article from './articleRoute';
 
@@ -13,7 +13,7 @@ const routes = (
 			<Route {...articleList} />
 			<Route {...article} />
 		</Route>
-		<Route path="*" component={NoFound} />
+		<Route {...noFound} />
 	</Route>
 );
 

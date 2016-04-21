@@ -2,8 +2,8 @@ import React from 'react';
 import {fetchNewComponent} from '../states/routerState';
 import {getList} from '../states/articleState';
 
-const Route = {
-    path: 'articleList',
+var route = {
+    path: 'ArticleList',
     getComponent(location, cb) {
         var dispatch = this.store.dispatch;
         dispatch(fetchNewComponent(true));
@@ -15,7 +15,7 @@ const Route = {
         function fetchComponent() {
             return new Promise(resolve => {
                 require.ensure([], require => {
-                    cb(null, require('../components/articleList/articleList'));
+                    cb(null, require('../components/ArticleList'));
                     resolve();
                 });
             });
@@ -30,4 +30,5 @@ const Route = {
     }
 };
 
-export default Route;
+export default route;
+

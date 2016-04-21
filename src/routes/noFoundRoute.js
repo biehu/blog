@@ -1,28 +1,22 @@
 import React from 'react';
 import {fetchNewComponent} from '../states/routerState';
-import {getItem} from '../states/articleState';
 
 var route = {
-    path: 'Article',
+    path: '*',
     getComponent(location, cb) {
         var dispatch = this.store.dispatch;
         dispatch(fetchNewComponent(true));
-		
-		var fillStore = () => {
-			return dispatch(getItem(location.query.articleId));
-		}
-
+	
         function fetchComponent() {
             return new Promise(resolve => {
                 require.ensure([], require => {
-                    cb(null, require('../components/Article'));
+                    cb(null, require('../components/NoFoundRoute'));
                     resolve();
                 });
             });
         }
 
         Promise.all([
-			fillStore(),
             fetchComponent()
         ]).then(
             () => dispatch(fetchNewComponent(false))
@@ -30,4 +24,4 @@ var route = {
     }
 };
 
-export default route;
+export default route; 

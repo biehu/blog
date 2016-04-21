@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-import Nav from './common/nav/nav';
+import Nav from './Nav';
 
 import '../statics/css/app.css';
 

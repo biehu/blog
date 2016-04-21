@@ -8,7 +8,7 @@ export function checkLogin() {
         try {
 //            const user = (await axios.get(`/interface/login/user`)).data;
 			const user = {
-				code: "100001",
+				code: "100000",
 				data: {
 					name: 'nick'
 				}

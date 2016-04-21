@@ -1,8 +1,8 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack/webpack.config.dev');
+var config = require('./webpack.config.dev');
 
-var port = 3000;
+var port = config._port;
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,

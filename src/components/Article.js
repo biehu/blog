@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 @connect(state => ({
 	post: state.articleState.items
 }))
-export default class ArticleList extends React.Component {
+export default class Article extends React.Component {
 	static propTypes = {
 		post: PropTypes.object
 	}
@@ -25,4 +25,3 @@ export default class ArticleList extends React.Component {
 		);
 	}
 }
-
